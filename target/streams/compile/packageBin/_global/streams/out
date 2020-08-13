@@ -2,14 +2,14 @@
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/TestServer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/TestServer.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/Server$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/Server$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/Server.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/Server.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	server/MyServer$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/MyServer$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	server/MyServer.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/MyServer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/TestServer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/TestServer$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	interpolation[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/interpolation[0m
 [0m[[0m[0mdebug[0m] [0m[0m	interpolation/Color$.class[0m

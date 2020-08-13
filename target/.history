@@ -19,3 +19,6 @@ run
 compile
 run
 git add .
+compile
+run
+compile
