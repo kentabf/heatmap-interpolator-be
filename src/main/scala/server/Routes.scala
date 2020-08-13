@@ -1,7 +1,7 @@
 package server
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
-import akka.http.scaladsl.server.Directives.{complete, get, path, concat}
+import akka.http.scaladsl.server.Directives.{complete, concat, get, path}
 
 object Routes {
   val routes =
@@ -15,7 +15,7 @@ object Routes {
         get {
           complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello2 to akka-http</h1>"))
         }
-      }
+      },
     )
 }
 

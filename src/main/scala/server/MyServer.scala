@@ -16,10 +16,15 @@ object MyServer {
     implicit val system = ActorSystem(Behaviors.empty, "my-system")
     implicit val executionContext = system.executionContext
 
+    val routes = concat(
+      NewpageRouter.route,
+      HomepageRouter.route,
+    )
+
     val host = "0.0.0.0"
     val port = sys.env.getOrElse("PORT", "8080").toInt
 
-    val bindingFuture = Http().newServerAt(host, port).bind(Routes.routes)
+    val bindingFuture = Http().newServerAt(host, port).bind(routes)
     if (localEnv) {
       println(s"Server online.\nPress RETURN to stop...")
       StdIn.readLine()
