@@ -20,7 +20,7 @@ object MyServer {
   val route = get {
      complete(
        HttpEntity(
-         ContentTypes.`text/html(UTF-8`,
+         ContentTypes.`text/html(UTF-8)`,
          testContent
        )
      )
