@@ -2,6 +2,14 @@
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/HomepageRouter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/HomepageRouter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/NewpageRouter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/NewpageRouter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/HomepageRouter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/HomepageRouter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/NewpageRouter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/NewpageRouter$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/MyServer$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/target/scala-2.13/classes/server/MyServer$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/MyServer.class[0m
