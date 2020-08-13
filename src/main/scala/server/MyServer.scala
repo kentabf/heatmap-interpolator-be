@@ -1,0 +1,37 @@
+package server
+
+import akka.actor.ActorSystem
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
+import akka.http.scaladsl.server.Directives._
+
+object MyServer {
+
+  val testContent =
+    """
+      |<html>
+      | <head>Test</head>
+      | <body>
+      |   Test HTML content served by Akka HTTP on Heroku
+      | </body>
+      |</html>
+      |""".stripMargin
+
+  val route = get {
+     complete(
+       HttpEntity(
+         ContentTypes.`text/html(UTF-8`,
+         testContent
+       )
+     )
+  }
+
+  def main(args: Array[String]): Unit = {
+    implicit val system = ActorSystem("Server")
+
+    val host = "0.0.0.0"
+    val port = sys.env.getOrElse("PORT", "8080").toInt
+
+    Http().bindAndHandle(route, host, port)
+  }
+}
