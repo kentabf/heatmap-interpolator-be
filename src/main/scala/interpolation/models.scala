@@ -2,7 +2,7 @@ package interpolation
 
 import scala.math.{Pi, abs, acos, cos, pow, sin, sqrt}
 
-case class MapLocation(i: Int, j: Int) {
+final case class MapLocation(i: Int, j: Int) {
   def calcDistance(other: MapLocation): Double = {
     sqrt(pow(i - other.i, 2) + pow(j - other.j, 2))
   }

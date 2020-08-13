@@ -1,19 +1,49 @@
 package server
 
-import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
-import akka.http.scaladsl.server.Directives.{complete, concat, get, path}
+import java.io.File
 
-object Routes {
+import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
+import akka.http.scaladsl.server.Directives
+
+object Routes extends Directives with JsonSupport {
+
+  def helper(body: Body ): String = {
+    println(body)
+    "abadsfdg"
+  }
+
   val routes =
     concat(
+
       path("hello") {
         get {
          complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello to akka-http</h1>"))
         }
       },
+
       path("hello2") {
         get {
           complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello2 to akka-http</h1>"))
+        }
+      },
+      path("img") {
+        get {
+          complete(
+            HttpEntity.fromFile(ContentTypes.`application/octet-stream`, new File("IDW_img.png"))
+          )
+        }
+      },
+
+      path("testpost") {
+        post {
+          entity(as[Body]) { body =>
+            complete(
+              HttpEntity(
+                ContentTypes.`application/json`,
+                helper(body)
+              )
+            )
+          }
         }
       },
     )
