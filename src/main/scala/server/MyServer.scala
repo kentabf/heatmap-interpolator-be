@@ -5,7 +5,7 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives._
 
-object TestServer {
+object MyServer {
 
   val testContent =
     """
@@ -18,19 +18,19 @@ object TestServer {
       |""".stripMargin
 
   val route = get {
-     complete(
-       HttpEntity(
-         ContentTypes.`text/html(UTF-8)`,
-         testContent
-       )
-     )
+    complete(
+      HttpEntity(
+        ContentTypes.`text/html(UTF-8)`,
+        testContent
+      )
+    )
   }
 
   def main(args: Array[String]): Unit = {
-    implicit val system = ActorSystem("TestServer")
+    implicit val system = ActorSystem("Server")
 
     val host = "0.0.0.0"
-    val port = sys.env.getOrElse("PORT", "1234").toInt
+    val port = sys.env.getOrElse("PORT", "8080").toInt
 
     Http().bindAndHandle(route, host, port)
   }
