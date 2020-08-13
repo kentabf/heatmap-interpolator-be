@@ -30,7 +30,7 @@ object TestServer {
     implicit val system = ActorSystem("Server")
 
     val host = "0.0.0.0"
-    val port = sys.env.getOrElse("PORT", "8080").toInt
+    val port = sys.env.getOrElse("PORT", "1234").toInt
 
     Http().bindAndHandle(route, host, port)
   }
