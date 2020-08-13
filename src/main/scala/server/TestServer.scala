@@ -27,7 +27,7 @@ object TestServer {
   }
 
   def main(args: Array[String]): Unit = {
-    implicit val system = ActorSystem("Server")
+    implicit val system = ActorSystem("TestServer")
 
     val host = "0.0.0.0"
     val port = sys.env.getOrElse("PORT", "1234").toInt
