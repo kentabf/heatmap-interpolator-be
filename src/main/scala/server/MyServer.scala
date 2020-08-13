@@ -16,10 +16,9 @@ object MyServer {
     implicit val system = ActorSystem(Behaviors.empty, "my-system")
     implicit val executionContext = system.executionContext
 
-    val routes = concat(
-      NewpageRouter.route,
-      HomepageRouter.route,
-    )
+    val routes =
+      NewpageRouter.route ~
+      HomepageRouter.route
 
     val host = "0.0.0.0"
     val port = sys.env.getOrElse("PORT", "8080").toInt
