@@ -6,7 +6,7 @@ scalaVersion := "2.13.3"
 
 enablePlugins(JavaAppPackaging)
 
-mainClass in Compile := Some("server.Server")
+mainClass in Compile := Some("server.TestServer")
 
 val AkkaVersion = "2.6.8"
 val AkkaHttpVersion = "10.2.0"
