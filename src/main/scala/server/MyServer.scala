@@ -10,15 +10,13 @@ import scala.io.StdIn
 
 object MyServer {
 
-  val localEnv: Boolean = true
+  val localEnv: Boolean = false
 
   def main(args: Array[String]): Unit = {
     implicit val system = ActorSystem(Behaviors.empty, "my-system")
     implicit val executionContext = system.executionContext
 
-    val routes =
-      NewpageRouter.route ~
-      HomepageRouter.route
+    val routes = Routes.routes
 
     val host = "0.0.0.0"
     val port = sys.env.getOrElse("PORT", "8080").toInt
@@ -33,20 +31,12 @@ object MyServer {
     }
   }
 }
-
-object Routes2 {
-  val routes = concat(
-    path("hello") {
-      get {
-        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello to akka-http</h1>"))
-      }
-    },
-    path("hello2") {
-      get {
-        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello2 to akka-http</h1>"))
-      }
-    },
-  )
+object PostRouter {
+  val route = path("post") {
+    post {
+      complete(HttpResponse(entity = "foo"))
+    }
+  }
 }
 
 object NewpageRouter {
