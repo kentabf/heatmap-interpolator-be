@@ -4,7 +4,7 @@ import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.{complete, get, path, concat}
 
 object Routes {
-  val route =
+  val routes =
     concat(
       path("hello") {
         get {

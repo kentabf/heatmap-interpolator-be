@@ -1,7 +1,5 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/kenta/Desktop/heatmap/src/main/scala/server/Routes.scala:23:8: HomepageRouter is already defined as object HomepageRouter[0m
-[0m[[0m[31merror[0m] [0m[0mobject HomepageRouter {[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/kenta/Desktop/heatmap/src/main/scala/server/Routes.scala:45:8: NewpageRouter is already defined as object NewpageRouter[0m
-[0m[[0m[31merror[0m] [0m[0mobject NewpageRouter {[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/kenta/Desktop/heatmap/src/main/scala/server/MyServer.scala:22:68: value routes is not a member of object server.Routes[0m
+[0m[[0m[31merror[0m] [0m[0mdid you mean route?[0m
+[0m[[0m[31merror[0m] [0m[0m    val bindingFuture = Http().newServerAt(host, port).bind(Routes.routes)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
