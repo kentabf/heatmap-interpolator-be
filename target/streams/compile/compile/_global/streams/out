@@ -1,8 +1,7 @@
-[0m[[0m[33mwarn[0m] [0m[0m/Users/kenta/Desktop/heatmap/src/main/scala/server/Routes.scala:1:1: [0m
-[0m[[0m[33mwarn[0m] [0m[0mFound names but no class, trait or object is defined in the compilation unit.[0m
-[0m[[0m[33mwarn[0m] [0m[0mThe incremental compiler cannot record the dependency information in such case.[0m
-[0m[[0m[33mwarn[0m] [0m[0mSome errors like unused import referring to a non-existent class might not be reported.[0m
-[0m[[0m[33mwarn[0m] [0m[0m    [0m
-[0m[[0m[33mwarn[0m] [0m[0mpackage server[0m
-[0m[[0m[33mwarn[0m] [0m[0m^[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/kenta/Desktop/heatmap/src/main/scala/server/Routes.scala:23:8: HomepageRouter is already defined as object HomepageRouter[0m
+[0m[[0m[31merror[0m] [0m[0mobject HomepageRouter {[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/kenta/Desktop/heatmap/src/main/scala/server/Routes.scala:45:8: NewpageRouter is already defined as object NewpageRouter[0m
+[0m[[0m[31merror[0m] [0m[0mobject NewpageRouter {[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

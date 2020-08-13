@@ -20,6 +20,8 @@ object Routes {
 }
 
 // For records, just in case
+
+/*
 object HomepageRouter {
   val content =
     """
@@ -64,3 +66,4 @@ object NewpageRouter {
     }
   }
 }
+ */
