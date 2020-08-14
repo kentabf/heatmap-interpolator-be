@@ -4,11 +4,6 @@ import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import interpolation._
 import spray.json._
 
-object InterpolatorType extends Enumeration {
-  type InterpolatorType = Value
-  val barnes, idw, nn, rbf, wrapper = Value
-}
-
 // domain model
 // NOTE: several case classes already defined in `interpolation`
 final case class Data(width: Int, height: Int, sample: List[Point])
