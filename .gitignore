@@ -1,1 +1,6 @@
+# OS
 *.DS_Store
+
+# Intellij
+**/.idea/workspace.xml
+**/.idea/tasks.xml
