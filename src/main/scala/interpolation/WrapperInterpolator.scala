@@ -25,9 +25,9 @@ class WrapperInterpolator(width: Int, height: Int, sample: TemperaturesData, sca
 
     val elToInterpolate: EarthLocation = mapToEarth(mlToInterpolate)
     val distances: Iterable[(Double, Temperature)] = sample
-      .map { case (ml: MapLocation, t: Temperature) => (mapToEarth(ml), t) }
+      .map((point: Point) => (mapToEarth(point.location), point.temperature))
       .map { case (el: EarthLocation, t: Temperature) => (elToInterpolate.distanceWith(el), t) }
-    val lessThan1: Iterable[(Double, Temperature)] = distances.filter(_._1 < 0.3)
+    val lessThan1: Iterable[(Double, Temperature)] = distances.filter(_._1 < 1)
     if (!lessThan1.isEmpty) {
       lessThan1.minBy(_._1)._2
     } else {

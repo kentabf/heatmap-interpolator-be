@@ -8,9 +8,9 @@ class RBFInterpolator(width: Int, height: Int, sample: TemperaturesData, scale: 
   override val name: String = "RBF"
 
   // for convenience
-  val sampleML: Array[MapLocation] = sample.map(_._1).toArray
+  val sampleML: Array[MapLocation] = sample.map(_.location).toArray
 
-  // symmetric matrix A
+  // construct symmetric matrix A
   val rbfMatData: Array[Array[Double]] = sampleML
     .map( ml1 => sampleML
       .map( ml2 => ml1.calcDistance(ml2) )
@@ -18,7 +18,7 @@ class RBFInterpolator(width: Int, height: Int, sample: TemperaturesData, scale: 
     )
   val rbfMat: DenseMatrix[Double] = DenseMatrix(rbfMatData:_*)
   // vector b, the sample temperatures
-  val rbfVecData: Array[Temperature] = sample.map(_._2).toArray
+  val rbfVecData: Array[Temperature] = sample.map(_.temperature).toArray
   val rbfVec: DenseVector[Temperature] = new DenseVector(rbfVecData)
   // solves Ax=b, where x is the vector of weights
   val x: DenseVector[Double] = rbfMat \ rbfVec

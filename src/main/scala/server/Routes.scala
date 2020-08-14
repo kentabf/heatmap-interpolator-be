@@ -34,15 +34,23 @@ object Routes extends Directives with JsonSupport {
         }
       },
 
-      path("testpost") {
+      path("apitest") {
         post {
           entity(as[Body]) { body =>
             complete(
               HttpEntity(
-                ContentTypes.`application/json`,
+                ContentTypes.`text/html(UTF-8)`,
                 helper(body)
               )
             )
+          }
+        }
+      },
+
+      path("interpolator") {
+        post {
+          entity(as[Body]) { body =>
+            Handler.response(body)
           }
         }
       },

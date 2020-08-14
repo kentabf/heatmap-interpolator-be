@@ -10,24 +10,24 @@ abstract class InterpolatorInterface(width: Int, height: Int, sample: Temperatur
 
   //Implemented
   def interpolateColor(temperature: Temperature): Color = {
-    var upper: (Double, Color) = (Double.MaxValue, Color(0, 0, 0))
-    var lower: (Double, Color) = (Double.MinValue, Color(0, 0, 0))
-    for ( elem <- scale ) {
-      val elemTemp = elem._1
-      if ( elemTemp >= temperature && elemTemp < upper._1 ) {
-        upper = elem
+    var upper: ColorMap = ColorMap(Double.MaxValue, Color(0, 0, 0))
+    var lower: ColorMap = ColorMap(Double.MinValue, Color(0, 0, 0))
+    for ( colorMap <- scale ) {
+      val elemTemp = colorMap.temperature
+      if ( elemTemp >= temperature && elemTemp < upper.temperature ) {
+        upper = colorMap
       }
-      if ( elemTemp <= temperature && elemTemp > lower._1 ) {
-        lower = elem
+      if ( elemTemp <= temperature && elemTemp > lower.temperature ) {
+        lower = colorMap
       }
     }
-    if ( upper._1 == lower._1 ) {
-      upper._2
+    if ( upper.temperature == lower.temperature ) {
+      upper.color
     } else {
-      val uRatio = (temperature - lower._1)/(upper._1 - lower._1)
-      val r = ((upper._2.red - lower._2.red) * uRatio + lower._2.red).round.toInt
-      val g = ((upper._2.green - lower._2.green) * uRatio + lower._2.green).round.toInt
-      val b = ((upper._2.blue - lower._2.blue) * uRatio + lower._2.blue).round.toInt
+      val uRatio = (temperature - lower.temperature)/(upper.temperature - lower.temperature)
+      val r = ((upper.color.red - lower.color.red) * uRatio + lower.color.red).round.toInt
+      val g = ((upper.color.green - lower.color.green) * uRatio + lower.color.green).round.toInt
+      val b = ((upper.color.blue - lower.color.blue) * uRatio + lower.color.blue).round.toInt
       Color(r, g, b)
     }
   }
@@ -38,25 +38,25 @@ abstract class InterpolatorInterface(width: Int, height: Int, sample: Temperatur
     ml.i*width + ml.j
   }
   def interpolateImage: BufferedImage = {
+    val img: BufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
     val idxArray: Array[Int] = new Array[Int](height*width)
     for (idx <- 0 until idxArray.size) {
       idxArray(idx) = idx
     }
-    val img: BufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
     idxArray
       .map( (idx: Int) => idxToMapLocation(idx) )
       .map( (ml: MapLocation) => {
-        val inSample: TemperaturesData = sample.filter { case (ml2: MapLocation, t: Temperature) => ml == ml2 }
+        val inSample: TemperaturesData = sample.filter(ml == _.location)
         if (inSample.size > 0) {
-          (ml, inSample.head._2)
+          Point(ml, inSample.head.temperature)
         } else {
-          (ml, interpolateTemperature(ml))
+          Point(ml, interpolateTemperature(ml))
         }
       })
-      .map{ case (ml: MapLocation, t: Temperature)  => (ml, interpolateColor(t))}
-      .foreach{ case (ml: MapLocation, c: Color) => {
-        img.setRGB(ml.j, ml.i, c.rgbToInt)
-      }}
+      .map( point => Pixel(point.location, interpolateColor(point.temperature)))
+      .foreach( (pixel: Pixel) => {
+        img.setRGB(pixel.location.j, pixel.location.i, pixel.color.rgbToInt)
+      })
     img
   }
 }

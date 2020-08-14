@@ -20,14 +20,14 @@ class BarnesInterpolator(width: Int, height: Int, sample: TemperaturesData, scal
 
     def firstPass(mlToInterpolate: MapLocation): Temperature = {
       val numerAndDenum: (Double, Double) = sample
-        .map{ case (ml: MapLocation, t: Temperature) => (weight(ml, mlToInterpolate, 1.0), t) }
+        .map( (point: Point) => (weight(point.location, mlToInterpolate, 1.0), point.temperature))
         .foldLeft((0,0): (Double, Double))( (acc, wat) => (acc._1 + wat._1*wat._2, acc._2 + wat._1))
       numerAndDenum._1/numerAndDenum._2
     }
 
     def secondPass(mlToInterpolate: MapLocation): Temperature = {
       val numerAndDenum: (Double, Double) = sample
-        .map{ case (ml: MapLocation, t: Temperature) => (weight(ml, mlToInterpolate, 0.3), t - firstPass(ml))}
+        .map( (point: Point) => (weight(point.location, mlToInterpolate, 0.3), point.temperature - firstPass(point.location)))
         .foldLeft((0,0): (Double, Double))( (acc, wat) => (acc._1 + wat._1*wat._2, acc._2 + wat._1))
       numerAndDenum._1/numerAndDenum._2
     }

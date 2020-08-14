@@ -6,7 +6,7 @@ class NNInterpolator(width: Int, height: Int, sample: TemperaturesData, scale: C
   override val name: String = "NN"
 
   def interpolateTemperature(mlToInterpolate: MapLocation): Temperature = {
-    sample.map{ case (ml: MapLocation, t: Temperature) => (ml.calcDistance(mlToInterpolate), t) }
+    sample.map( (point: Point) => (point.location.calcDistance(mlToInterpolate), point.temperature))
       .minBy(_._1)
       ._2
   }

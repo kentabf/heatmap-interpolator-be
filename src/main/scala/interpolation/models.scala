@@ -8,13 +8,19 @@ final case class MapLocation(i: Int, j: Int) {
   }
 }
 
-case class Color(red: Int, green: Int, blue: Int) {
+final case class Point(location: MapLocation, temperature: Temperature)
+
+final case class Color(red: Int, green: Int, blue: Int) {
   def rgbToInt: Int = {
     red*pow(256, 2).toInt + green*256 + blue
   }
 }
 
-case class EarthLocation(lat: Double, lon: Double) {
+final case class Pixel(location: MapLocation, color: Color)
+
+final case class ColorMap(temperature: Temperature, color: Color)
+
+final case class EarthLocation(lat: Double, lon: Double) {
   val r = 6371.0
 
   // lat lon in radians
