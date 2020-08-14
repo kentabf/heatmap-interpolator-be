@@ -6,6 +6,7 @@ import javax.imageio.ImageIO
 import java.awt.image.BufferedImage
 import java.io.File
 
+import akka.http.scaladsl.server.StandardRoute
 import server.Routes.complete
 
 import scala.math.pow
@@ -20,7 +21,7 @@ object Handler {
     ColorMap(1.0, Color (0, 0, 255) ),
   )
 
-  def response(body: Body) = {
+  def response(body: Body): StandardRoute = {
 
     val interpolatorType = body.interpolatorType.get
     val width = body.data.width
