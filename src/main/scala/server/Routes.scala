@@ -1,13 +1,13 @@
 package server
 
-import java.io.File
+import java.nio.file.{Files, Paths}
 
-import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
+import akka.http.scaladsl.model.{HttpEntity, _}
 import akka.http.scaladsl.server.Directives
 
 object Routes extends Directives with JsonSupport {
 
-  def helper(body: Body ): String = {
+  def testHelper(body: Body ): String = {
     println(body)
     body.toString
   }
@@ -15,21 +15,28 @@ object Routes extends Directives with JsonSupport {
   val routes =
     concat(
 
-      path("idw-img") {
+      path("test-image") {
         get {
-          complete(
-            HttpEntity.fromFile(ContentTypes.`application/octet-stream`, new File("IDW_img.png"))
-          )
+          complete{
+            val byteArray = Files.readAllBytes(Paths.get("IDW_img.png"))
+            HttpResponse(
+             StatusCodes.OK,
+             entity = HttpEntity(
+               ContentType(MediaTypes.`image/png`),
+               byteArray
+             )
+           )
+          }
         }
       },
 
-      path("test") {
+      path("test-body") {
         post {
           entity(as[Body]) { body =>
             complete(
               HttpEntity(
                 ContentTypes.`text/html(UTF-8)`,
-                helper(body)
+                testHelper(body)
               )
             )
           }
@@ -39,7 +46,7 @@ object Routes extends Directives with JsonSupport {
       path("interpolate") {
         post {
           entity(as[Body]) { body =>
-            Handler.response(body)
+            Endpoint.respond(body)
           }
         }
       },
