@@ -6,10 +6,14 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/backend/target/scala-2.13/classes/server/InterpolatorType.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/NNHandler.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/backend/target/scala-2.13/classes/server/NNHandler.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/Routes$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/backend/target/scala-2.13/classes/server/Routes$$anon$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/WrapperHandler.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/backend/target/scala-2.13/classes/server/WrapperHandler.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/Data.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/backend/target/scala-2.13/classes/server/Data.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	server/CORSHandler.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/backend/target/scala-2.13/classes/server/CORSHandler.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/IDWHandler.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/kenta/Desktop/heatmap/backend/target/scala-2.13/classes/server/IDWHandler.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	server/Data$.class[0m

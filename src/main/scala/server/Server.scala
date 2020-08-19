@@ -15,7 +15,7 @@ object Server {
     implicit val executionContext = system.executionContext
 
     val host = "0.0.0.0"
-    val port = sys.env.getOrElse("PORT", "8080").toInt
+    val port = if (localEnv) 1234 else sys.env.getOrElse("PORT", "8080").toInt
 
     val bindingFuture = Http().newServerAt(host, port).bind(Routes.routes)
     if (localEnv) {

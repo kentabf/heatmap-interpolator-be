@@ -13,10 +13,11 @@ import javax.imageio.ImageIO
 object Handler{
   val defaultScale: ColorScale = List (
     ColorMap(0.0, Color (255, 0, 0) ),
-    ColorMap(0.25, Color (255, 255, 0) ),
-    ColorMap(0.5, Color (0, 255, 0) ),
-    ColorMap(0.75, Color (0, 255, 255) ),
-    ColorMap(1.0, Color (0, 0, 255) ),
+    ColorMap(0.2, Color (255, 255, 0) ),
+    ColorMap(0.4, Color (0, 255, 0) ),
+    ColorMap(0.6, Color (0, 255, 255) ),
+    ColorMap(0.8, Color (0, 0, 255) ),
+    ColorMap(1.0, Color (255, 0, 255) ),
   )
 
   val defaultScaleMax = 1.0

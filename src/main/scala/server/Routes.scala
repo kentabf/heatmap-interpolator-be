@@ -7,6 +7,8 @@ import akka.http.scaladsl.server.Directives
 
 object Routes extends Directives with JsonSupport {
 
+  private val cors = new CORSHandler {}
+
   def testHelper(body: Body ): String = {
     println(body)
     body.toString
@@ -16,7 +18,9 @@ object Routes extends Directives with JsonSupport {
     concat(
 
       path("test-image") {
-        get {
+        options {
+          cors.corsHandler(complete(StatusCodes.OK))
+        } ~ get {
           complete{
             val byteArray = Files.readAllBytes(Paths.get("IDW_img.png"))
             HttpResponse(
@@ -31,7 +35,9 @@ object Routes extends Directives with JsonSupport {
       },
 
       path("test-body") {
-        post {
+        options {
+          cors.corsHandler(complete(StatusCodes.OK))
+        } ~ post {
           entity(as[Body]) { body =>
             complete(
               HttpEntity(
@@ -44,7 +50,9 @@ object Routes extends Directives with JsonSupport {
       },
 
       path("interpolate") {
-        post {
+        options {
+          cors.corsHandler(complete(StatusCodes.OK))
+        } ~ post {
           entity(as[Body]) { body =>
             Endpoint.respond(body)
           }
