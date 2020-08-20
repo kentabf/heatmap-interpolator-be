@@ -8,7 +8,7 @@ import scala.io.StdIn
 
 object Server {
 
-  val localEnv: Boolean = true
+  val localEnv: Boolean = false
 
   def main(args: Array[String]): Unit = {
     implicit val system = ActorSystem(Behaviors.empty, "backend-server")
