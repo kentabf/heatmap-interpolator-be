@@ -8,7 +8,7 @@ object Endpoint {
 
   def respond(body: Body): StandardRoute = {
 
-    val interpolatorType = body.interpolatorType.get
+    val interpolatorType = body.interpolatorType.getOrElse(null)
 
     val handler: Option[HandlerInterface] = interpolatorType match {
       case "barnes" => Some(new BarnesHandler(body))
@@ -20,12 +20,11 @@ object Endpoint {
       // error case
       case _ => None
     }
-
     if (handler.isEmpty) {
       complete(
         HttpResponse(
           StatusCodes.BadRequest,
-          entity = "Invalid interpolator type"
+          entity = "Interpolator type invalid or missing"
         )
       )
     } else {
