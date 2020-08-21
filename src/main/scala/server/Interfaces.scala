@@ -33,6 +33,8 @@ abstract class HandlerInterface(body: Body) {
 
   // Implemented
   // If invalid, the output returns an error string to be returned HTTP status code 400
+  val minimumNumberPoints = 2
+
   def validateInput: Option[String] = {
     val scaleMax = if (body.scale.isEmpty) defaultScaleMax else body.scale.get.maxBy(_.temperature).temperature
     val scaleMin = if (body.scale.isEmpty) defaultScaleMin else body.scale.get.minBy(_.temperature).temperature
@@ -42,6 +44,8 @@ abstract class HandlerInterface(body: Body) {
     if (scaleMax < sampleMax || scaleMin > sampleMin) {
       // Validate that all input temperatures are within scale
       Some("Sample not within scale")
+    } else if (body.data.sample.size < minimumNumberPoints){
+      Some(s"Not enough number of points - there must be minimum ${minimumNumberPoints}")
     } else {
       None
     }
