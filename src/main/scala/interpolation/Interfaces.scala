@@ -2,6 +2,7 @@ package interpolation
 
 import java.awt.image.BufferedImage
 import scala.math.floor
+import scala.collection.parallel.CollectionConverters._
 
 abstract class InterpolatorInterface(width: Int, height: Int, sample: TemperaturesData, scale: ColorScale) {
   //Abstract
@@ -44,6 +45,7 @@ abstract class InterpolatorInterface(width: Int, height: Int, sample: Temperatur
       idxArray(idx) = idx
     }
     idxArray
+      .par
       .map( (idx: Int) => idxToMapLocation(idx) )
       .map( (ml: MapLocation) => {
         val inSample: TemperaturesData = sample.filter(ml == _.location)
