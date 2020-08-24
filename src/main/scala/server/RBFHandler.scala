@@ -13,7 +13,7 @@ class RBFHandler(body: Body) extends HandlerInterface(body) {
 
   def interpolate: StandardRoute = {
     val interpolator: RBFInterpolator =
-      new RBFInterpolator(width, height, body.data.sample, body.scale.getOrElse(defaultScale), r => 1/(pow(r, 0.5)))
+      new RBFInterpolator(width, height, body.data.sample, body.scale.getOrElse(defaultScale), r => 1/(pow(1+pow(r, 2), 0.5)))
     val img = interpolator.interpolateImage
     returnImage(img)
   }
