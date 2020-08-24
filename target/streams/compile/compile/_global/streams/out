@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/kenta/Desktop/heatmap/backend/src/main/scala/server/IDWHandler.scala:6:7: BarnesHandler is already defined as class BarnesHandler[0m
-[0m[[0m[31merror[0m] [0m[0mclass BarnesHandler(body: Body) extends HandlerInterface(body) {[0m
-[0m[[0m[31merror[0m] [0m[0m      ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0m1 deprecation (since 2.13.0); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

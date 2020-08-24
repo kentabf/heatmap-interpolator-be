@@ -36,7 +36,7 @@ abstract class InterpolatorInterface(width: Int, height: Int, sample: Temperatur
     MapLocation(floor(idx/width).toInt, idx % width)
   }
   def mapLocationToIdx(ml: MapLocation): Int = {
-    ml.i*width + ml.j
+    ml.y*width + ml.x
   }
   def interpolateImage: BufferedImage = {
     val img: BufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
@@ -57,7 +57,7 @@ abstract class InterpolatorInterface(width: Int, height: Int, sample: Temperatur
       })
       .map( point => Pixel(point.location, interpolateColor(point.temperature)))
       .foreach( (pixel: Pixel) => {
-        img.setRGB(pixel.location.j, pixel.location.i, pixel.color.rgbToInt)
+        img.setRGB(pixel.location.x, pixel.location.y, pixel.color.rgbToInt)
       })
     img
   }

@@ -8,8 +8,8 @@ class WrapperInterpolator(width: Int, height: Int, sample: TemperaturesData, sca
   override val name: String = "Wrapper"
 
   def mapToEarth(ml: MapLocation): EarthLocation = {
-    val lat: Double = 90.0 - (ml.i/(height*1.0))*180.0
-    val lon: Double = -180.0 + (ml.j/(width*1.0))*360.0
+    val lat: Double = 90.0 - (ml.y/(height*1.0))*180.0
+    val lon: Double = -180.0 + (ml.x/(width*1.0))*360.0
     EarthLocation(lat, lon)
   }
   def earthToMap(el: EarthLocation): MapLocation = {
